@@ -933,7 +933,6 @@ async function saveSlideshowData() {
   }
 }
 
-async function handleSlideFormSubmit(e) {
 async function handleSlideshowFormSubmit(e) {
   e.preventDefault();
 
