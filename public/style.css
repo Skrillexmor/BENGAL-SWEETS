@@ -1,0 +1,1043 @@
+/* ==========================================================================
+   BENGAL SWEETS - GLACÉ MINIMALIST LUXURY BOUTIQUE THEME
+   Pure White, Crisp Charcoal Typography, Champagne Gold Accents & Editorial Cleanliness
+   ========================================================================== */
+
+:root {
+  --bg-white: #FFFFFF;
+  --bg-porcelain: #FAF8F5;
+  --bg-subtle: #F4F1EA;
+  --bg-dark: #121011;
+  
+  --text-primary: #181617;          /* Slate Charcoal */
+  --text-secondary: #524B4E;        /* Subtle Body Copy */
+  --text-muted: #8E8689;          /* Light Muted */
+  --text-light: #FFFFFF;
+  
+  --brand-gold: #C9A86A;            /* Champagne Gold */
+  --brand-gold-light: #EBD8B2;
+  --brand-gold-deep: #A68443;
+  
+  --border-light: #ECE6DC;
+  --border-dark: #181617;
+  --border-gold: rgba(201, 168, 106, 0.4);
+  
+  --whatsapp: #25D366;
+  --whatsapp-hover: #1EBE5D;
+  --veg-green: #0F8A3B;
+  
+  --font-heading: 'Cinzel', 'Playfair Display', serif;
+  --font-script: 'Caveat', 'Playfair Display', cursive;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.09);
+  
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-white);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-wide {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   MINIMALIST GLACÉ HEADER & NAVIGATION
+   ========================================================================== */
+.glace-top-bar {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.glace-top-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-icons-minimal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icons-minimal a {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.social-icons-minimal a:hover {
+  color: var(--brand-gold);
+}
+
+.top-bar-branches-text {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.top-bar-branches-text strong {
+  color: var(--text-primary);
+}
+
+.top-bar-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-bar-user-actions a {
+  color: var(--text-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.top-bar-user-actions a:hover {
+  color: var(--brand-gold-deep);
+}
+
+/* Main Minimalist Header */
+.glace-header {
+  background: var(--bg-white);
+  padding: 24px 0 16px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.glace-brand-emblem {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 14px;
+}
+
+.glace-logo-title {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.glace-logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--brand-gold-deep);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* Minimal Nav Bar */
+.glace-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glace-nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 28px;
+}
+
+.glace-nav-link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 6px 0;
+  position: relative;
+  transition: var(--transition);
+}
+
+.glace-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--text-primary);
+  transition: width 0.2s ease;
+}
+
+.glace-nav-link:hover, .glace-nav-link.active {
+  color: var(--text-primary);
+}
+
+.glace-nav-link:hover::after, .glace-nav-link.active::after {
+  width: 100%;
+}
+
+.glace-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.35rem;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   PANORAMIC HERO CAROUSEL
+   ========================================================================== */
+.glace-hero-section {
+  position: relative;
+  overflow: hidden;
+  background: #FDFBF9;
+}
+
+.glace-slider-wrapper {
+  position: relative;
+  min-height: 480px;
+}
+
+.glace-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: scale(1.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glace-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  position: relative;
+}
+
+.glace-slide-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.glace-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.glace-slide-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+  padding: 60px 24px;
+}
+
+.glace-slide-script {
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--brand-gold-deep);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.glace-slide-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  letter-spacing: 4px;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.glace-slide-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Minimal Outline Buttons */
+.btn-glace-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--text-primary);
+  background: transparent;
+  color: var(--text-primary);
+  padding: 11px 26px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-glace-outline:hover {
+  background: var(--text-primary);
+  color: #FFFFFF;
+}
+
+.btn-glace-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-gold);
+  color: #FFFFFF;
+  border: 1.5px solid var(--brand-gold);
+  padding: 11px 26px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-glace-gold:hover {
+  background: var(--brand-gold-deep);
+  border-color: var(--brand-gold-deep);
+}
+
+.btn-whatsapp-glace {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--whatsapp);
+  color: #FFFFFF;
+  padding: 11px 24px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: var(--radius-xs);
+  transition: var(--transition);
+}
+
+.btn-whatsapp-glace:hover {
+  background: var(--whatsapp-hover);
+}
+
+/* Slider Controls */
+.glace-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.glace-slider-arrow:hover {
+  background: var(--text-primary);
+  color: #FFF;
+}
+
+.glace-prev { left: 24px; }
+.glace-next { right: 24px; }
+
+/* ==========================================================================
+   TRIO CATEGORY CARDS (Penda, Chum Chum, Fresh Fruit Ice Cream)
+   ========================================================================== */
+.glace-trio-section {
+  padding: 40px 0 70px;
+}
+
+.glace-trio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.glace-trio-card {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.glace-trio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.glace-trio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.glace-trio-card:hover .glace-trio-img {
+  transform: scale(1.06);
+}
+
+.glace-trio-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.94);
+  padding: 12px 28px;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   "SWEETS & DESSERT" MINIMALIST PRODUCT GRID
+   ========================================================================== */
+.glace-products-section {
+  padding: 70px 0;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+}
+
+.glace-section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.glace-section-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  letter-spacing: 4px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.glace-section-sub {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.glace-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px 24px;
+}
+
+.glace-product-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition);
+  padding: 16px 12px;
+  position: relative;
+}
+
+.glace-product-card:hover {
+  transform: translateY(-4px);
+}
+
+.glace-product-img-wrapper {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-porcelain);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: var(--transition);
+}
+
+.glace-product-card:hover .glace-product-img-wrapper {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.glace-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.glace-product-card:hover .glace-product-img {
+  transform: scale(1.08);
+}
+
+.glace-product-name {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.glace-product-category {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.glace-product-price {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--brand-gold-deep);
+  margin-bottom: 12px;
+}
+
+.glace-add-inquiry-btn {
+  background: var(--bg-white);
+  border: 1px solid var(--border-dark);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.glace-add-inquiry-btn:hover {
+  background: var(--text-primary);
+  color: #FFF;
+}
+
+/* ==========================================================================
+   FULL-WIDTH EDITORIAL BANNER & TESTIMONIAL
+   ========================================================================== */
+.glace-editorial-banner {
+  height: 380px;
+  background-image: url('https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glace-editorial-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 16, 17, 0.45);
+}
+
+.glace-editorial-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #FFF;
+  max-width: 650px;
+  padding: 0 20px;
+}
+
+.glace-editorial-content h2 {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* Testimonial Section */
+.glace-testimonial-section {
+  padding: 80px 0;
+  text-align: center;
+  background: var(--bg-white);
+}
+
+.testimonial-script-tag {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  color: var(--brand-gold-deep);
+  display: block;
+  margin-bottom: -4px;
+}
+
+.testimonial-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.testimonial-quote-box {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  color: var(--border-light);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.testimonial-quote-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.testimonial-author {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   SPLIT PROMO / LATEST PACK DEALS SECTION
+   ========================================================================== */
+.glace-deals-section {
+  padding: 70px 0;
+  background: var(--bg-porcelain);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.glace-deals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.glace-deals-img-col img {
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.glace-deals-content h2 {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.glace-deals-content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.deals-bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-size: 0.9rem;
+}
+
+.deals-bullet-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.deals-bullet-list i {
+  color: var(--brand-gold-deep);
+}
+
+/* ==========================================================================
+   "ALWAYS NEAR YOU" (2 RAJKOT BRANCHES & SERVICES)
+   ========================================================================== */
+.glace-branches-section {
+  padding: 80px 0;
+  background: var(--bg-white);
+  text-align: center;
+}
+
+.glace-branches-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.glace-service-col {
+  padding: 24px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.glace-service-col:hover {
+  border-color: var(--text-primary);
+  transform: translateY(-4px);
+}
+
+.service-icon {
+  font-size: 1.8rem;
+  color: var(--brand-gold-deep);
+  margin-bottom: 14px;
+}
+
+.glace-service-col h4 {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.glace-service-col p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.glace-service-col a {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   SEAMLESS INSTAGRAM / FRESH PHOTO STRIP
+   ========================================================================== */
+.glace-insta-strip {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  overflow: hidden;
+}
+
+.insta-strip-item {
+  height: 150px;
+  overflow: hidden;
+}
+
+.insta-strip-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.insta-strip-item:hover img {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   MINIMALIST GLACÉ FOOTER
+   ========================================================================== */
+.glace-footer {
+  background: var(--bg-white);
+  padding: 60px 0 28px;
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.footer-newsletter-box {
+  max-width: 440px;
+  margin: 0 auto 36px;
+}
+
+.footer-newsletter-box p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.newsletter-form input:focus {
+  border-color: var(--text-primary);
+}
+
+.glace-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-nav-links a {
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   CATALOG PAGE GLACÉ STYLES
+   ========================================================================== */
+.catalog-glace-wrapper {
+  padding: 50px 0 80px;
+}
+
+.catalog-search-minimal {
+  max-width: 480px;
+  margin: 0 auto 32px;
+  position: relative;
+}
+
+.catalog-search-minimal input {
+  width: 100%;
+  padding: 12px 18px 12px 42px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  outline: none;
+  background: var(--bg-porcelain);
+}
+
+.catalog-search-minimal i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.catalog-pills-minimal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.cat-pill-minimal {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cat-pill-minimal:hover, .cat-pill-minimal.active {
+  background: var(--text-primary);
+  color: #FFF;
+  border-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   INQUIRY SIDEBAR DRAWER & TOAST
+   ========================================================================== */
+.inquiry-sidebar-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  position: sticky;
+  top: 120px;
+  box-shadow: var(--shadow-sm);
+}
+
+.toast-msg-box {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--text-primary);
+  color: #FFFFFF;
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  z-index: 2000;
+  transition: transform 0.25s ease-out;
+  pointer-events: none;
+}
+
+.toast-msg-box.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .glace-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .glace-branches-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .glace-insta-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .glace-mobile-toggle {
+    display: block;
+  }
+  
+  .glace-nav {
+    display: none;
+  }
+  
+  .glace-nav.active {
+    display: block;
+    padding-top: 14px;
+  }
+
+  .glace-nav-list {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .glace-slide-title {
+    font-size: 2rem;
+  }
+
+  .glace-trio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glace-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .glace-deals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glace-branches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glace-insta-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .top-bar-branches-text {
+    display: none;
+  }
+}

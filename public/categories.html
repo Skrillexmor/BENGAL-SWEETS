@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Delicacies & Menu | Bengal Sweets (Bengal's Since 1989) Rajkot</title>
+  <meta name="description" content="Explore fresh Penda, Cham Cham, Khasta Kachori, Nylon Khaman, Rasmalai, and Fresh Fruit Ice Creams at Bengal Sweets Rajkot. Inquire directly on WhatsApp.">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍬</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Glacé Minimalist Top Bar -->
+  <div class="glace-top-bar">
+    <div class="container glace-top-content">
+      <div class="social-icons-minimal">
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/919428275629" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <div class="top-bar-branches-text">
+        <span><strong>Branch 1:</strong> Indira Circle (74879 67888)</span>
+        <span style="margin: 0 8px; color: var(--border-light);">|</span>
+        <span><strong>Branch 2:</strong> Mahila College Chowk (87350 28311)</span>
+      </div>
+      <div class="top-bar-user-actions">
+        <a href="https://wa.me/919428275629?text=Hello%20Bengal%20Sweets!%20I%20would%20like%20to%20inquire." target="_blank" style="color:var(--whatsapp); font-weight:700;">
+          <i class="fa-brands fa-whatsapp"></i> Miral Patel: 94282 75629
+        </a>
+        <a href="admin.html"><i class="fa-solid fa-lock"></i> Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Glacé Main Header -->
+  <header class="glace-header">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; position:relative;">
+        <button class="glace-mobile-toggle" id="mobileNavToggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <a href="index.html" class="glace-brand-emblem" style="margin: 0 auto;">
+          <h1 class="glace-logo-title">BENGAL'S</h1>
+          <span class="glace-logo-sub">SINCE 1989 &bull; RAJKOT</span>
+        </a>
+
+        <div style="width: 24px;" class="desktop-spacer"></div>
+      </div>
+
+      <!-- Centered Navigation -->
+      <nav class="glace-nav" id="mainNav">
+        <ul class="glace-nav-list">
+          <li><a href="index.html" class="glace-nav-link">Home</a></li>
+          <li><a href="about.html" class="glace-nav-link">Our Story</a></li>
+          <li><a href="categories.html" class="glace-nav-link active">Delicacies & Menu</a></li>
+          <li><a href="contact.html" class="glace-nav-link">Our 2 Branches</a></li>
+          <li><a href="admin.html" class="glace-nav-link">Admin Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="catalog-glace-wrapper">
+    <div class="container">
+      
+      <!-- Catalog Heading -->
+      <div class="glace-section-header" style="margin-bottom: 32px;">
+        <span style="font-family:var(--font-script); font-size:1.9rem; color:var(--brand-gold-deep); display:block;">Handcrafted Daily in Rajkot</span>
+        <h2 class="glace-section-title">OUR DELICACIES & MENU</h2>
+        <p class="glace-section-sub">
+          Select items to build your inquiry, pick your nearest Rajkot branch, and receive immediate assistance on WhatsApp.
+        </p>
+      </div>
+
+      <!-- Minimal Search Bar -->
+      <div class="catalog-search-minimal">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="catalogSearch" placeholder="Search Penda, Chum Chum, Kachori, Ice Cream..." oninput="handleCatalogSearch(this.value)">
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="catalog-pills-minimal" id="categoryPillNav">
+        <button class="cat-pill-minimal active" onclick="filterCatalog('all', this)">All Items</button>
+        <button class="cat-pill-minimal" onclick="filterCatalog('penda', this)">Penda</button>
+        <button class="cat-pill-minimal" onclick="filterCatalog('chumchum', this)">Chum Chum</button>
+        <button class="cat-pill-minimal" onclick="filterCatalog('snacks', this)">Hot Snacks</button>
+        <button class="cat-pill-minimal" onclick="filterCatalog('liquid_sweets', this)">Liquid Sweets</button>
+        <button class="cat-pill-minimal" onclick="filterCatalog('gujarati_sweets', this)">Gujarati Sweets</button>
+        <button class="cat-pill-minimal" onclick="filterCatalog('barfi', this)">Barfi & Katli</button>
+        <button class="cat-pill-minimal" onclick="filterCatalog('icecream', this)">Natural Ice Creams</button>
+      </div>
+
+      <!-- Split Layout: Catalog Grid + Inquiry Drawer Sidebar -->
+      <div style="display:grid; grid-template-columns: 1fr 340px; gap: 36px; align-items: flex-start;" class="catalog-split-container">
+        
+        <!-- Left: Dynamic Product Cards Grid -->
+        <div id="delicaciesColumn" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+          <!-- Dynamically populated via app.js -->
+        </div>
+
+        <!-- Right: Inquiry Sticky Drawer -->
+        <aside>
+          <div class="inquiry-sidebar-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); padding-bottom:14px; margin-bottom:16px;">
+              <h3 style="font-family:var(--font-heading); font-size:1.05rem; letter-spacing:1px; text-transform:uppercase; color:var(--text-primary);">
+                <i class="fa-brands fa-whatsapp" style="color:var(--whatsapp);"></i> Inquiry List
+              </h3>
+              <span id="inquiryBadgeCount" style="background:var(--bg-porcelain); border:1px solid var(--border-light); padding:2px 10px; border-radius:var(--radius-full); font-size:0.75rem; font-weight:700;">0 items</span>
+            </div>
+
+            <!-- Branch Choice Selector -->
+            <div style="margin-bottom:16px;">
+              <label style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-secondary); display:block; margin-bottom:6px;">
+                Pickup Branch:
+              </label>
+              <select id="selectedBranchInquiry" style="width:100%; padding:10px; border:1px solid var(--border-light); border-radius:var(--radius-xs); font-size:0.85rem; background:#FFF;">
+                <option value="Branch 1 - Indira Circle (150 Ft. Ring Rd)">Branch 1: Indira Circle (150 Ft. Ring Rd)</option>
+                <option value="Branch 2 - Mahila College Chowk (Kalawad Rd)">Branch 2: Mahila College Chowk (Kalawad Rd)</option>
+              </select>
+            </div>
+
+            <!-- Items List -->
+            <div id="sidebarInquiryList" style="max-height: 280px; overflow-y: auto; margin-bottom: 16px;">
+              <div style="text-align:center; padding: 24px 10px; color:var(--text-muted); font-size:0.85rem;">
+                <i class="fa-solid fa-basket-shopping" style="font-size:1.8rem; margin-bottom:8px; opacity:0.6;"></i>
+                <p>Your inquiry list is empty. Click <strong>INQUIRE / ADD</strong> on any delicacy.</p>
+              </div>
+            </div>
+
+            <div id="inquiryActionsArea" style="display: none;">
+              <div style="margin-bottom: 14px;">
+                <label style="font-size: 0.75rem; font-weight: 700; text-transform:uppercase; letter-spacing:1px; color: var(--text-secondary); display:block; margin-bottom:4px;">Custom Notes / Quantities:</label>
+                <input type="text" id="inquiryNotes" placeholder="e.g. 1kg Mava Penda, 500g Kesar" style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-light); border-radius: var(--radius-xs); font-size: 0.84rem;">
+              </div>
+              
+              <button onclick="sendInquiryOnWhatsApp()" class="btn-whatsapp-glace" style="width:100%; justify-content:center; padding:12px 16px; border:none; cursor:pointer;">
+                <i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp
+              </button>
+
+              <button onclick="clearInquiry()" style="background: none; border: none; color: var(--text-muted); font-size: 0.76rem; width: 100%; text-align: center; margin-top: 10px; cursor: pointer; text-decoration: underline;">
+                Clear All Items
+              </button>
+            </div>
+
+            <!-- Direct Contact Numbers -->
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--border-light); font-size: 0.8rem; color: var(--text-secondary);">
+              <p style="font-weight:700; color:var(--text-primary); margin-bottom:4px;">Direct Phone Inquiries:</p>
+              <p>&bull; Indira Circle: <a href="tel:7487967888" style="font-weight:700; color:var(--text-primary);">74879 67888</a></p>
+              <p>&bull; Mahila College: <a href="tel:8735028311" style="font-weight:700; color:var(--text-primary);">87350 28311</a></p>
+              <p>&bull; Proprietor Miral Patel: <a href="tel:9428275629" style="font-weight:700; color:var(--brand-gold-deep);">94282 75629</a></p>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastBox" class="toast-msg-box"></div>
+
+  <!-- MINIMALIST GLACÉ FOOTER -->
+  <footer class="glace-footer">
+    <div class="container">
+      <div class="glace-footer-bottom" style="border-top:none; padding-top:0;">
+        <div>
+          &copy; 1989 &ndash; 2026 <strong>Bengal Sweets (Bengal's)</strong>. All Rights Reserved. Rajkot, Gujarat.
+        </div>
+        <div class="footer-nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="categories.html">Menu</a>
+          <a href="contact.html">Branches</a>
+          <a href="admin.html">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
