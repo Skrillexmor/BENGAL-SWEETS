@@ -224,22 +224,12 @@ const DEFAULT_DELICACIES = [
   }
 ];
 
-// --- LIVE SYNC STORAGE (MongoDB API) ---
-const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:5000/api' : '/api';
+// --- IN MEMORY DATA ---
 let DELICACIES_DATA = [];
 
 async function fetchProducts() {
-  try {
-    const res = await fetch(`${API_BASE}/products`);
-    if (res.ok) {
-      DELICACIES_DATA = await res.json();
-    } else {
-      DELICACIES_DATA = DEFAULT_DELICACIES;
-    }
-  } catch (err) {
-    console.error('Failed to fetch products from backend:', err);
-    DELICACIES_DATA = DEFAULT_DELICACIES;
-  }
+  // Directly load hardcoded data since database is disconnected
+  DELICACIES_DATA = [...DEFAULT_DELICACIES];
 }
 
 // --- INQUIRY STATE ---
@@ -280,17 +270,29 @@ async function fetchAndRenderSlideshow() {
   const slider = document.getElementById("heroSlider");
   if (!slider) return;
   
-  try {
-    const res = await fetch(`${API_BASE}/settings`);
-    if (res.ok) {
-      const settings = await res.json();
-      if (settings && settings.slideshow && settings.slideshow.length > 0) {
-        renderSlideshow(settings.slideshow, slider);
-      }
+  // Hardcoded slideshow data since database is disconnected
+  const defaultSlides = [
+    {
+      img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1920&q=80",
+      script: "Tradition in every bite",
+      title: "Discover the Magic of Authentic Sweets",
+      desc: "Handcrafted delicacies using century-old recipes. Experience the purest joy of traditional flavors made fresh daily.",
+      btnText: "Explore Collection",
+      btnLink: "categories.html",
+      whatsappText: "Hello, I am interested in exploring the new festive collection."
+    },
+    {
+      img: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=1920&q=80",
+      script: "Exclusive Hampers",
+      title: "Celebrate with Bengal Sweets",
+      desc: "Customized premium packaging for weddings, corporate gifting and every special occasion.",
+      btnText: "View Festive Range",
+      btnLink: "categories.html?cat=barfi",
+      whatsappText: "I would like to inquire about bulk orders and gifting options."
     }
-  } catch (err) {
-    console.error("Failed to load slideshow settings", err);
-  }
+  ];
+  
+  renderSlideshow(defaultSlides, slider);
 }
 
 function renderSlideshow(slides, container) {
@@ -764,53 +766,36 @@ async function handleProductFormSubmit(e) {
   }
 
   const payload = {
+    id: editId || 'item_' + Date.now(),
     name, category, categoryTitle: catTitles[category] || category,
     price, rating, reviewCount: reviews, img, desc, isBestseller
   };
 
-  try {
-    if (editId) {
-      const res = await fetch(`${API_BASE}/products/${editId}`, {
-        method: 'PUT', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (res.ok) {
-        showToast(`Updated ${name} successfully!`);
-      }
-    } else {
-      const res = await fetch(`${API_BASE}/products`, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (res.ok) {
-        showToast(`Added ${name} to delicacies catalog!`);
-      }
+  if (editId) {
+    const index = DELICACIES_DATA.findIndex(p => p.id === editId);
+    if (index !== -1) {
+      DELICACIES_DATA[index] = payload;
+      showToast(`Updated ${name} successfully! (Local Memory)`);
     }
-    // Refresh list
-    await fetchProducts();
-    renderAdminProductsTable();
-    closeProductModal();
-  } catch (err) {
-    console.error("Error saving product:", err);
-    showToast("Error saving product. Check server.");
+  } else {
+    DELICACIES_DATA.unshift(payload);
+    showToast(`Added ${name} to delicacies catalog! (Local Memory)`);
   }
+
+  renderAdminProductsTable();
+  closeProductModal();
 }
 
 async function deleteProduct(productId) {
   const item = DELICACIES_DATA.find(p => p.id === productId);
   if (!item) return;
 
-  if (confirm(`Are you sure you want to delete "${item.name}" from catalog?`)) {
-    try {
-      const res = await fetch(`${API_BASE}/products/${productId}`, { method: 'DELETE' });
-      if (res.ok) {
-        await fetchProducts();
-        renderAdminProductsTable();
-        showToast(`Deleted ${item.name} from catalog.`);
-      }
-    } catch (err) {
-      console.error("Error deleting product:", err);
-      showToast("Error deleting product.");
+  if (confirm(`Are you sure you want to delete ${item.name}?`)) {
+    const index = DELICACIES_DATA.findIndex(p => p.id === productId);
+    if (index !== -1) {
+      DELICACIES_DATA.splice(index, 1);
+      showToast(`${item.name} deleted! (Local Memory)`);
+      renderAdminProductsTable();
     }
   }
 }
@@ -945,26 +930,29 @@ async function saveSlideshowData() {
 }
 
 async function handleSlideFormSubmit(e) {
+async function handleSlideshowFormSubmit(e) {
   e.preventDefault();
-  
-  const editIndex = document.getElementById("editSlideIndex").value;
-  
-  const newSlide = {
-    img: document.getElementById("slideImg").value.trim(),
+
+  const payload = {
+    img: document.getElementById("slideImg").value.trim() || "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1920&q=80",
     script: document.getElementById("slideScript").value.trim(),
     title: document.getElementById("slideTitle").value.trim(),
     desc: document.getElementById("slideDesc").value.trim(),
-    btnText: document.getElementById("slideBtnText").value.trim(),
-    btnLink: document.getElementById("slideBtnLink").value.trim(),
-    whatsappText: document.getElementById("slideWhatsappText").value.trim()
+    btnText: document.getElementById("slideBtnText").value.trim() || "Explore Collection",
+    btnLink: document.getElementById("slideBtnLink").value.trim() || "categories.html",
+    whatsappText: document.getElementById("slideWaText").value.trim() || "Hello!"
   };
 
-  if (editIndex !== "") {
-    SLIDESHOW_DATA[parseInt(editIndex, 10)] = newSlide;
-  } else {
-    SLIDESHOW_DATA.push(newSlide);
-  }
-  
+  SLIDESHOW_DATA.push(payload);
+  showToast("Slide added! (Local Memory)");
+  renderAdminSlideshowTable();
   closeSlideModal();
-  await saveSlideshowData();
+}
+
+async function deleteSlide(index) {
+  if (confirm("Delete this slide?")) {
+    SLIDESHOW_DATA.splice(index, 1);
+    showToast("Slide deleted! (Local Memory)");
+    renderAdminSlideshowTable();
+  }
 }
