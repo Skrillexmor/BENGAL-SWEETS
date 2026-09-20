@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-const Product = require('../models/Product');
-const Setting = require('../models/Setting');
+const Product = require('./models/Product');
+const Setting = require('./models/Setting');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -128,10 +128,10 @@ app.put('/api/settings/slideshow', async (req, res) => {
 });
 
 const path = require('path');
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Start Server or Export for Vercel
