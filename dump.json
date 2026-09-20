@@ -1,11 +1,4 @@
-const mongoose = require('mongoose');
-const Product = require('./models/Product');
-const Setting = require('./models/Setting');
-require('dotenv').config();
-
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/bengalsweets';
-
-const DEFAULT_DELICACIES = [
+[
   {
     "id": "6aafd917b27a43c715d33bb7",
     "name": "Test Name",
@@ -227,20 +220,4 @@ const DEFAULT_DELICACIES = [
     "createdAt": "2026-09-20T13:01:11.768Z",
     "updatedAt": "2026-09-20T13:13:06.969Z"
   }
-];
-
-mongoose.connect(MONGO_URI)
-  .then(async () => {
-    console.log('Connected to MongoDB. Clearing existing products...');
-    await Product.deleteMany({});
-    
-    console.log('Inserting default products...');
-    await Product.insertMany(DEFAULT_DELICACIES);
-    
-    console.log('Database seeded successfully!');
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error('Database connection error:', err);
-    process.exit(1);
-  });
+]
